@@ -101,5 +101,9 @@ class ColourCategory extends Model implements HasMedia
     {
         return $this->hasMedia('image') ? true : false;
     }
+    public function subCategory()
+    {
+        return $this->hasMany(\App\Models\SubCategory::class, 'color_id');
+    }
 
 }

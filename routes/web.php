@@ -22,6 +22,8 @@ Route::get('login/{service}/callback', 'Auth\LoginController@handleProviderCallb
 Auth::routes();
 
 Route::get('payments/failed', 'PayPalController@index')->name('payments.failed');
+
+
 Route::get('payments/razorpay/checkout', 'RazorPayController@checkout');
 Route::post('payments/razorpay/pay-success/{userId}/{deliveryAddressId?}/{couponCode?}', 'RazorPayController@paySuccess');
 Route::get('payments/razorpay', 'RazorPayController@index');
@@ -35,9 +37,19 @@ Route::get('firebase/sw-js', 'AppSettingController@initFirebase');
 
 Route::get('storage/app/public/{id}/{conversion}/{filename?}', 'UploadController@storage');
 Route::middleware('auth')->group(function () {
+    Route::resource('subcategory', 'SubCategoryController');
+    Route::get('subsize','SubCategoryController@subsize')->name('subsize.index');
+    Route::get('clothessubcategory','SubCategoryController@clothessubcategory')->name('clothessubcategory.index');
+    Route::get('shopsubcategory','SubCategoryController@shopsubcategory')->name('shopsubcategory.index');
+
+    Route::get('subsize/create','SubCategoryController@createsubsize')->name('subsize.create');
+    Route::get('clothessubcategory/create','SubCategoryController@createclothessubcategory')->name('clothessubcategory.create');
+    Route::get('shopsubcategory/create','SubCategoryController@createshopsubcategory')->name('shopsubcategory.create');
+
+
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
     Route::get('/', 'DashboardController@index')->name('dashboard');
-
+    Route::resource('subcategory', 'SubCategoryController');
     Route::post('uploads/store', 'UploadController@store')->name('medias.create');
     Route::get('users/profile', 'UserController@profile')->name('users.profile');
     Route::post('users/remove-media', 'UserController@removeMedia');
@@ -97,7 +109,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('categories', 'CategoryController')->except([
         'show'
     ]);
-
+   
     Route::resource('faqCategories', 'FaqCategoryController')->except([
         'show'
     ]);
@@ -197,4 +209,5 @@ Route::middleware('auth')->group(function () {
     Route::resource('shopCategories', 'ShopCategoryController')->except([
         'show'
     ]);
+    
 });

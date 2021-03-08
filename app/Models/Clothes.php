@@ -210,7 +210,10 @@ class Clothes extends Model implements HasMedia
     {
         return $this->belongsTo(\App\Models\Shop::class, 'shop_id', 'id');
     }
-
+    public function subCategory()
+    {
+        return $this->belongsTo(\App\Models\SubCategory::class, 'sub_category_id', 'id');
+    }
     /**
      * @return float
      */

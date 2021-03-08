@@ -95,6 +95,10 @@
                     <a class="nav-link {{ Request::is('categories*') ? 'active' : '' }}" href="{!! route('categories.index') !!}">@if($icons)
                             <i class="nav-icon fa fa-cutlery"></i>@endif<p>{{trans('lang.category_plural')}}</p></a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('subcategory*') ? 'active' : '' }}" href="{!! route('subcategory.index') !!}">@if($icons)
+                            <i class="nav-icon fa fa-arrow-circle-right "></i>@endif<p>SubCategories</p></a>
+                </li>
             @endcan
             @can('colourCategories.index')
                 <li class="nav-item">
@@ -107,17 +111,29 @@
                     <a class="nav-link {{ Request::is('sizeCategories*') ? 'active' : '' }}" href="{!! route('sizeCategories.index') !!}">@if($icons)
                             <i class="nav-icon fa fa-image"></i>@endif<p>{{trans('lang.size_category_plural')}}</p></a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('subcategory*') ? 'active' : '' }}" href="{!! route('subsize.index') !!}">@if($icons)
+                            <i class="nav-icon fa fa-arrow-circle-right "></i>@endif<p>Sub Size</p></a>
+                </li>
             @endcan
             @can('clothesCategories.index')
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('clothesCategories*') ? 'active' : '' }}" href="{!! route('clothesCategories.index') !!}">@if($icons)
                             <i class="nav-icon fa fa-comments"></i>@endif<p>{{trans('lang.clothes_category_plural')}}</p></a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('subcategory*') ? 'active' : '' }}" href="{!! route('clothessubcategory.index') !!}">@if($icons)
+                            <i class="nav-icon fa fa-arrow-circle-right "></i>@endif<p>Clothes SubCategories</p></a>
+                </li>
             @endcan
             @can('shopCategories.index')
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('shopCategories*') ? 'active' : '' }}" href="{!! route('shopCategories.index') !!}">@if($icons)
                             <i class="nav-icon fa fa-comments"></i>@endif<p>{{trans('lang.shop_category_plural')}}</p></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('subcategory*') ? 'active' : '' }}" href="{!! route('shopsubcategory.index') !!}">@if($icons)
+                            <i class="nav-icon fa fa-arrow-circle-right "></i>@endif<p>Shop subcategory</p></a>
                 </li>
             @endcan
         </ul>

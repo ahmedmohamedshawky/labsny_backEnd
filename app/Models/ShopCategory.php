@@ -37,4 +37,8 @@ class ShopCategory extends Model
     {
         return $this->belongsToMany(\App\Models\ShopCategory::class, 'shop_category_shops');
     }
+    public function subCategory()
+    {
+        return $this->hasMany(\App\Models\SubCategory::class, 'shop_category_id');
+    }
 }

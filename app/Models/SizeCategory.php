@@ -32,4 +32,9 @@ class SizeCategory extends Model
         'name' => 'required',
         'description' => 'required'
     ];
+
+    public function subCategory()
+    {
+        return $this->hasMany(\App\Models\SubCategory::class, 'size_id');
+    }
 }

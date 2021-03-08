@@ -15,8 +15,13 @@ class CreateSubCategoriesTable extends Migration
     {
         Schema::create('sub_categories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('category_id');
-            $table->string('name');
+            $table->string('name')->nullable();;
+            $table->unsignedBigInteger('age_id')->nullable();;
+            $table->unsignedBigInteger('color_id')->nullable();;
+            $table->unsignedBigInteger('size_id')->nullable();;
+            $table->unsignedBigInteger('clothes_category_id')->nullable();;
+            $table->unsignedBigInteger('shop_category_id');
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->timestamps();
         });
     }
